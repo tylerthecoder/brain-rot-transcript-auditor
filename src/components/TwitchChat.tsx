@@ -132,7 +132,7 @@ export default function TwitchChat({ transcript, isAttack }: TwitchChatProps) {
   }, [messages]);
 
   return (
-    <div className="h-full flex flex-col bg-[#18181b]">
+    <div className="h-full flex flex-col bg-[#18181b] overflow-hidden">
       <div className="flex items-center gap-2 px-3 py-2 border-b border-[#2d2d35]">
         <div className="w-2 h-2 rounded-full bg-accent-red animate-pulse" />
         <span className="text-[11px] font-bold text-white tracking-wider">STREAM CHAT</span>
@@ -141,7 +141,7 @@ export default function TwitchChat({ transcript, isAttack }: TwitchChatProps) {
 
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto px-2 py-1 space-y-0.5 terminal-scroll"
+        className="flex-1 min-h-0 overflow-y-auto px-2 py-1 space-y-0.5 terminal-scroll"
         style={{ scrollbarColor: "#3d3d46 transparent" }}
       >
         {messages.map((msg) => (

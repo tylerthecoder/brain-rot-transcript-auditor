@@ -189,10 +189,10 @@ export default function PlayPage() {
         <LevelUpModal show={showLevelUp} levelInfo={newLevel} onDismiss={() => setShowLevelUp(false)} />
       )}
 
-      <div className={`min-h-screen flex flex-col pt-12 ${shake ? "screen-shake" : ""}`}>
-        <div className="flex-1 flex overflow-hidden">
+      <div className={`h-screen flex flex-col pt-12 ${shake ? "screen-shake" : ""}`}>
+        <div className="flex-1 flex overflow-hidden min-h-0">
           {hasTwitchChat && (
-            <div className="w-72 flex-shrink-0 border-r border-accent-purple/20">
+            <div className="w-72 flex-shrink-0 border-r border-accent-purple/20 overflow-hidden">
               <TwitchChat transcript={transcript} isAttack={transcript.isAttack} />
             </div>
           )}
