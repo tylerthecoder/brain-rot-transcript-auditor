@@ -10,6 +10,9 @@ import { PERKS } from "@/lib/perks";
 const COSMETIC_IDS = [
   "subway_surfer", "rainbow_mode", "confetti_cannon", "confetti_cannon_2",
   "confetti_cannon_3", "speed_lines", "ai_taunts", "twitch_chat",
+  "screen_shake", "sound_effects", "dancing_anime_girl", "mlg_airhorn",
+  "mlg_airhorn_2", "comic_sans", "dramatic_narrator", "jumpscare",
+  "big_head", "hacker_typer", "critical_hit",
 ];
 
 export default function ShopPage() {

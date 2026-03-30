@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { GameState } from "@/lib/types";
 import { getLevelForXp, getXpProgress } from "@/lib/levels";
 import { motion } from "framer-motion";
@@ -51,10 +52,18 @@ export default function HUD({ state }: HUDProps) {
           </motion.div>
         )}
 
-        {/* Tokens */}
-        <div className="flex items-center gap-1">
-          <span className="text-accent-cyan">{state.tokens}</span>
-          <span className="text-text-dim text-xs">TKN</span>
+        {/* Tokens + Shop */}
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            <span className="text-accent-cyan">{state.tokens}</span>
+            <span className="text-text-dim text-xs">TKN</span>
+          </div>
+          <Link
+            href="/shop"
+            className="text-[10px] px-1.5 py-0.5 border border-accent-cyan/20 text-accent-cyan/50 hover:text-accent-cyan hover:border-accent-cyan/50 rounded transition-colors"
+          >
+            SHOP
+          </Link>
         </div>
 
         {/* Score */}
