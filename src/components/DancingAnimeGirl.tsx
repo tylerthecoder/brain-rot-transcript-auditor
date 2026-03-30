@@ -8,7 +8,7 @@ export default function DancingAnimeGirl() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="https://media.tenor.com/JYcMgGyDdJoAAAAi/cute-dance.gif"
+        src="https://media.tenor.com/jxYz5DbA0VUAAAAj/cute-dance.gif"
         alt="Dancing anime girl"
         width={120}
         height={120}
