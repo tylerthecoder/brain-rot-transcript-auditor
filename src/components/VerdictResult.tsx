@@ -5,9 +5,10 @@ import { VerdictResult as VerdictResultType } from "@/lib/types";
 interface VerdictResultProps {
   result: VerdictResultType;
   onNext: () => void;
+  attackExplanation?: string;
 }
 
-export default function VerdictResultDisplay({ result, onNext }: VerdictResultProps) {
+export default function VerdictResultDisplay({ result, onNext, attackExplanation }: VerdictResultProps) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
@@ -52,6 +53,18 @@ export default function VerdictResultDisplay({ result, onNext }: VerdictResultPr
           </p>
         </motion.div>
       </div>
+
+      {result.wasAttack && attackExplanation && (
+        <motion.div
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.45 }}
+          className="mb-6 mx-auto max-w-lg px-4 py-3 rounded-lg border border-accent-red/30 bg-accent-red/5"
+        >
+          <div className="text-[10px] font-bold tracking-widest text-accent-red/60 mb-1">ATTACK VECTOR</div>
+          <p className="text-sm text-text-primary">{attackExplanation}</p>
+        </motion.div>
+      )}
 
       {result.correct && (
         <motion.div

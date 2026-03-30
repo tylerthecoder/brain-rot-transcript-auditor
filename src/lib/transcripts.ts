@@ -3,13 +3,14 @@ import { tutorialTranscripts } from "@/data/transcripts/tutorial";
 import { bronzeTranscripts } from "@/data/transcripts/bronze";
 import { silverTranscripts } from "@/data/transcripts/silver";
 import { goldTranscripts } from "@/data/transcripts/gold";
+import { diamondTranscripts } from "@/data/transcripts/diamond";
 
 const ALL_TRANSCRIPTS: Record<Difficulty, Transcript[]> = {
   tutorial: tutorialTranscripts,
   bronze: bronzeTranscripts,
   silver: silverTranscripts,
   gold: goldTranscripts,
-  diamond: [],
+  diamond: diamondTranscripts,
 };
 
 export function getTranscriptsByDifficulty(difficulty: Difficulty): Transcript[] {

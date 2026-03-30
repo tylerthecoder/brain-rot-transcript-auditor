@@ -153,6 +153,18 @@ export default function TranscriptViewer({
         <div className="text-sm text-text-primary">{transcript.briefing}</div>
         <div className="mt-2 flex gap-4 text-xs text-text-dim">
           <span>
+            TIER:{" "}
+            <span className={
+              transcript.difficulty === "diamond" ? "text-accent-cyan font-bold" :
+              transcript.difficulty === "gold" ? "text-accent-amber font-bold" :
+              transcript.difficulty === "silver" ? "text-text-primary font-bold" :
+              transcript.difficulty === "bronze" ? "text-orange-400 font-bold" :
+              "text-text-dim font-bold"
+            }>
+              {transcript.difficulty.toUpperCase()}
+            </span>
+          </span>
+          <span>
             ENV: <span className="text-accent-cyan">{transcript.environment}</span>
           </span>
           <span>

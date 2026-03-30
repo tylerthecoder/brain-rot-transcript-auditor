@@ -283,7 +283,11 @@ export default function PlayPage() {
         )}
 
         {phase === "result" && result && (
-          <VerdictResultDisplay result={result} onNext={handleNext} />
+          <VerdictResultDisplay
+            result={result}
+            onNext={handleNext}
+            attackExplanation={transcript?.attackExplanation}
+          />
         )}
 
         {phase === "reviewing" && (
