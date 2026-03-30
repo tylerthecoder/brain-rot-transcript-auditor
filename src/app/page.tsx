@@ -25,13 +25,13 @@ export default function Home() {
   }, []);
 
   const clickCountRef = useRef(0);
-  const clickTimerRef = useRef<ReturnType<typeof setTimeout>>();
+  const clickTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [devFlash, setDevFlash] = useState(false);
 
   const handleDevClick = () => {
     if (process.env.NODE_ENV !== "development") return;
     clickCountRef.current++;
-    clearTimeout(clickTimerRef.current);
+    if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
     clickTimerRef.current = setTimeout(() => { clickCountRef.current = 0; }, 800);
     if (clickCountRef.current >= 3) {
       clickCountRef.current = 0;
