@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import TranscriptViewer from "@/components/TranscriptViewer";
 import VerdictPanel from "@/components/VerdictPanel";
 import VerdictResultDisplay from "@/components/VerdictResult";
@@ -20,6 +19,7 @@ import DramaticNarrator from "@/components/DramaticNarrator";
 import Jumpscare from "@/components/Jumpscare";
 import HackerTyper from "@/components/HackerTyper";
 import CriticalHit from "@/components/CriticalHit";
+import InlineShop from "@/components/InlineShop";
 import { GameState, Transcript, VerdictResult, Achievement } from "@/lib/types";
 import { loadGameState, saveGameState } from "@/lib/game-state";
 import { calculateVerdict, applyVerdict } from "@/lib/scoring";
@@ -176,12 +176,18 @@ export default function PlayPage() {
     setTimeout(() => setFlash(null), 400);
     setTimeout(() => setShake(false), 500);
 
-    setShowShopPrompt(transcriptCountRef.current % 3 === 0);
-
     setPhase("result");
   };
 
   const handleNext = () => {
+    if (transcriptCountRef.current % 3 === 0) {
+      setShowShopPrompt(true);
+      return;
+    }
+    advanceToNext();
+  };
+
+  const advanceToNext = () => {
     if (state) loadNext(state);
     setResult(null);
     setShowTaunt(false);
@@ -226,6 +232,14 @@ export default function PlayPage() {
       {has(state, "hacker_typer") && phase === "reviewing" && <HackerTyper />}
       {has(state, "dancing_anime_girl") && <DancingAnimeGirl />}
 
+      {showShopPrompt && (
+        <InlineShop
+          state={state}
+          onStateChange={(s) => setState(s)}
+          onClose={advanceToNext}
+        />
+      )}
+
       {showConfetti && <Confetti level={has(state, "confetti_cannon_3") ? 3 : has(state, "confetti_cannon_2") ? 2 : 1} />}
       {showTaunt && <AITaunt onDismiss={() => setShowTaunt(false)} />}
       {showNarrator && <DramaticNarrator onDismiss={() => setShowNarrator(false)} />}
@@ -269,20 +283,7 @@ export default function PlayPage() {
         )}
 
         {phase === "result" && result && (
-          <div>
-            <VerdictResultDisplay result={result} onNext={handleNext} />
-            {showShopPrompt && (
-              <div className="flex justify-center pb-3 -mt-1">
-                <Link
-                  href="/shop"
-                  className="text-xs px-3 py-1 border border-accent-cyan/30 text-accent-cyan/60
-                             hover:text-accent-cyan hover:border-accent-cyan/60 rounded transition-all animate-pulse"
-                >
-                  Got tokens? Visit the SHOP
-                </Link>
-              </div>
-            )}
-          </div>
+          <VerdictResultDisplay result={result} onNext={handleNext} />
         )}
 
         {phase === "reviewing" && (
