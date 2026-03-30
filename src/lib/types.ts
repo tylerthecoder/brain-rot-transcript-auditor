@@ -15,6 +15,7 @@ export interface Transcript {
   steps: TranscriptStep[];
   attackLines?: number[];
   briefing: string;
+  attackExplanation?: string;
 }
 
 export interface GameState {

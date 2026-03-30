@@ -21,9 +21,9 @@ export default function MLGOverlay({ tier, onDone }: MLGOverlayProps) {
 
   return (
     <div className="fixed inset-0 z-[9996] pointer-events-none flex items-center justify-center">
-      {/* Hit markers */}
+      {/* Hit markers — crosshair style */}
       <div className="text-white text-6xl font-bold opacity-80" style={{ animation: "hitmarker-pop 0.3s ease-out" }}>
-        &#x2716;
+        &#x2295;
       </div>
 
       {tier === 2 && (
