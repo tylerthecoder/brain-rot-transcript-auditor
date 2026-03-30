@@ -53,7 +53,7 @@ export default function HackerTyper() {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 z-[5] pointer-events-none overflow-hidden opacity-[0.07] font-mono text-accent-green text-[10px] leading-tight p-4"
+      className="fixed inset-0 z-[35] pointer-events-none overflow-hidden opacity-[0.12] font-mono text-accent-green text-[10px] leading-tight p-4"
     >
       {lines.map((line, i) => (
         <div key={i}>{line}</div>
