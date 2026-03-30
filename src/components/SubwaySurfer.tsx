@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 const VIDEOS = [
-  { id: "subway", label: "Subway Surfers", url: "https://www.youtube.com/embed/tZrmx7QcDl0?autoplay=1&mute=1&loop=1&controls=0" },
+  { id: "subway", label: "Subway Surfers", url: "https://www.youtube.com/embed/zZ7AimPACzc?autoplay=1&mute=1&loop=1&controls=0" },
   { id: "minecraft", label: "Minecraft Parkour", url: "https://www.youtube.com/embed/mcV2ojGHyTY?autoplay=1&mute=1&loop=1&controls=0" },
   { id: "slime", label: "Satisfying Slime", url: "https://www.youtube.com/embed/kvx3JKC49SM?autoplay=1&mute=1&loop=1&controls=0" },
   { id: "rickroll", label: "???", url: "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&loop=1&controls=0" },
