@@ -29,7 +29,6 @@ export default function Home() {
   const [devFlash, setDevFlash] = useState(false);
 
   const handleDevClick = () => {
-    if (process.env.NODE_ENV !== "development") return;
     clickCountRef.current++;
     if (clickTimerRef.current) clearTimeout(clickTimerRef.current);
     clickTimerRef.current = setTimeout(() => { clickCountRef.current = 0; }, 800);
