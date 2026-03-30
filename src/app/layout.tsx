@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fira_Code } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const firaCode = Fira_Code({
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col font-mono bg-bg-primary text-text-primary antialiased">
         {children}
         <div className="crt-overlay" />
+        <Analytics />
       </body>
     </html>
   );
